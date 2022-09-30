@@ -82,7 +82,7 @@ namespace T2Grupal
                 if (!bus.Equals(datos[1]))
                 {
                     writer.WriteLine(registro);
-                }
+                }           
                 registro = reader.ReadLine();
             }
             reader.Close();
@@ -90,6 +90,18 @@ namespace T2Grupal
             File.Delete("Registro.txt");
             File.Move("Temp.txt", "Registro.txt");
             leer();
+
+            
+            /*dgvRegistro.Rows.Clear();
+            StreamReader read = new StreamReader("Registro.txt");
+            string regis = read.ReadLine();
+            string[] dato = new string[5];
+            while (regis != null)
+            {
+                dato = regis.Split(',');
+                dgvRegistro.Rows.Add(dato);
+            }
+            read.Close();*/
         }
 
         private void btnOrdenar_Click(object sender, EventArgs e)
@@ -117,7 +129,6 @@ namespace T2Grupal
                 writer.WriteLine(persona);
             }
             writer.Close();
-
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
