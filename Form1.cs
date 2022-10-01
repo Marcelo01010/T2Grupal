@@ -12,7 +12,7 @@ namespace T2Grupal
             
         }
         Registro r = new Registro();
-        List<Registro> registro = new List<Registro>();
+        List<Registro> registros = new List<Registro>();
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             double monto = 0;
@@ -27,7 +27,7 @@ namespace T2Grupal
             writer.WriteLine(persona);
             writer.Close();
             leer();
-            registro.Add(new Registro()
+            registros.Add(new Registro()
             {
                 P2_nombre = txtNombre.Text,
                 P2_codigo = txtCodigo.Text,
@@ -35,7 +35,7 @@ namespace T2Grupal
                 P2_cantidad = int.Parse(txtCantidad.Text)
             });
             dgvRegistro.Rows.Clear();
-            foreach (var m in registro)
+            foreach (var m in registros)
             {
                 dgvRegistro.Rows.Add(m.P2_nombre, m.P2_codigo, m.P2_precio_unitario, m.P2_cantidad, m.monto());
             }
@@ -76,14 +76,21 @@ namespace T2Grupal
             string[] datos = new string[5];
             string registro = reader.ReadLine();
             string bus = txtBus.Text;
+            int cont = 0;
             while (registro != null)
             {
                 datos = registro.Split(',');
                 if (!bus.Equals(datos[1]))
                 {
                     writer.WriteLine(registro);
-                }           
+                }
+                else
+                {
+                    dgvRegistro.Rows.RemoveAt(cont);
+                    registros.RemoveAt(cont);
+                }
                 registro = reader.ReadLine();
+                cont++;
             }
             reader.Close();
             writer.Close();
@@ -91,27 +98,17 @@ namespace T2Grupal
             File.Move("Temp.txt", "Registro.txt");
             leer();
 
-            
-            /*dgvRegistro.Rows.Clear();
-            StreamReader read = new StreamReader("Registro.txt");
-            string regis = read.ReadLine();
-            string[] dato = new string[5];
-            while (regis != null)
-            {
-                dato = regis.Split(',');
-                dgvRegistro.Rows.Add(dato);
-            }
-            read.Close();*/
         }
-
+        List<Registro> listaordenada = new List<Registro>();
         private void btnOrdenar_Click(object sender, EventArgs e)
         {
-            List<Registro> listaordenada = new List<Registro>();
-            listaordenada = registro.OrderBy(medit => medit.P2_nombre).ToList();
-            registro = listaordenada;
+            listaordenada = registros.OrderBy(medit => medit.P2_nombre).ToList();
+            registros = listaordenada;
             dgvRegistro.Rows.Clear();
             foreach (var m in listaordenada)
             {
+                Console.WriteLine("Hola");
+                Console.WriteLine(m.P2_codigo);
                 dgvRegistro.Rows.Add(m.P2_nombre, m.P2_codigo, m.P2_precio_unitario, m.P2_cantidad, m.monto());
             }
             File.Delete("Registro.txt");
