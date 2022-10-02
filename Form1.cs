@@ -60,14 +60,6 @@ namespace T2Grupal
         {
             StreamWriter writer = new StreamWriter("Registro.txt");
             writer.Close();
-
-            /*if (!File.Exists("Registro.txt"))
-            {
-            }
-            else
-            {
-                leer();
-            }*/
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -107,8 +99,6 @@ namespace T2Grupal
             dgvRegistro.Rows.Clear();
             foreach (var m in listaordenada)
             {
-                Console.WriteLine("Hola");
-                Console.WriteLine(m.P2_codigo);
                 dgvRegistro.Rows.Add(m.P2_nombre, m.P2_codigo, m.P2_precio_unitario, m.P2_cantidad, m.monto());
             }
             File.Delete("Registro.txt");
@@ -117,7 +107,7 @@ namespace T2Grupal
             {
                 double monto = n.P2_cantidad * n.P2_precio_unitario;
                 string persona = "";
-                persona += n.P2_nombre + ",";
+                persona += n.P2_nombre + ","; 
                 persona += n.P2_codigo + ",";
                 persona += n.P2_precio_unitario + ",";
                 persona += n.P2_cantidad + ",";
@@ -132,12 +122,12 @@ namespace T2Grupal
             StreamReader reader = new StreamReader("Registro.txt");
             string[] datos = new string[5];
             bool flag = false;
-            string bus = txtBus.Text;
+            string bus = txtBuscar.Text;
             string registro = reader.ReadLine();
             while (registro != null && flag == false)
             {
                 datos = registro.Split(',');
-                if (bus.Equals(datos[1]))
+                if (bus.Equals(datos[0]))
                 {
                     MessageBox.Show("Se encontro el medicamento");
                     flag = true;
@@ -148,7 +138,7 @@ namespace T2Grupal
                 }
             }
             if (flag == false)
-                MessageBox.Show("No se encontro esa búsqueda", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontró ese medicamento", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             reader.Close();
         }
     }

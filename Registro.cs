@@ -15,6 +15,7 @@ namespace T2Grupal
 
         public double P2_precio_unitario{ get; set; }
 
+
         public double monto()
         {
             double monto = 0;

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -53,6 +53,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistro)).BeginInit();
@@ -171,16 +172,17 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(93)))));
+            this.panel2.Controls.Add(this.txtBuscar);
             this.panel2.Controls.Add(this.txtBus);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.btnOrdenar);
             this.panel2.Controls.Add(this.dgvRegistro);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(647, 0);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(649, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1311, 722);
+            this.panel2.Size = new System.Drawing.Size(1365, 722);
             this.panel2.TabIndex = 1;
             // 
             // txtBus
@@ -195,7 +197,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Green;
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminar.Location = new System.Drawing.Point(785, 607);
+            this.btnEliminar.Location = new System.Drawing.Point(819, 607);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(209, 78);
             this.btnEliminar.TabIndex = 9;
@@ -207,7 +209,7 @@
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.Green;
             this.btnBuscar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBuscar.Location = new System.Drawing.Point(510, 607);
+            this.btnBuscar.Location = new System.Drawing.Point(338, 607);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(209, 78);
             this.btnBuscar.TabIndex = 9;
@@ -231,8 +233,8 @@
             // 
             this.dgvRegistro.AllowUserToAddRows = false;
             this.dgvRegistro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvRegistro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvRegistro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRegistro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(93)))));
             this.dgvRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -247,8 +249,8 @@
             this.dgvRegistro.Name = "dgvRegistro";
             this.dgvRegistro.ReadOnly = true;
             this.dgvRegistro.RowHeadersWidth = 92;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvRegistro.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvRegistro.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvRegistro.RowTemplate.Height = 45;
             this.dgvRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegistro.Size = new System.Drawing.Size(1219, 423);
@@ -260,7 +262,7 @@
             this.Column1.MinimumWidth = 11;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 225;
+            this.Column1.Width = 250;
             // 
             // Column2
             // 
@@ -305,12 +307,20 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Lista de Productos";
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(569, 607);
+            this.txtBuscar.Multiline = true;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(225, 78);
+            this.txtBuscar.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1958, 722);
+            this.ClientSize = new System.Drawing.Size(2014, 722);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -347,12 +357,13 @@
         private Button btnEliminar;
         private Button btnBuscar;
         private DataGridView dgvRegistro;
+        private TextBox txtBus;
+        private Button btnOrdenar;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private TextBox txtBus;
-        private Button btnOrdenar;
+        private TextBox txtBuscar;
     }
 }
